@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Slider, InputGroup } from "@blueprintjs/core";
+import { Input } from 'semantic-ui-react'
+import { Slider } from '@material-ui/core';
 import styles from './Home.css';
 import { handleStringChange } from "@blueprintjs/docs-theme";
+
 // import { Link } from 'react-router-dom';
 // import routes from '../constants/routes.json';
 
@@ -23,8 +25,8 @@ const ControlPanel = styled.div`
   bottom: 10px;
   position: absolute;
   width: 100%;
-  height: 100px;
-  padding: 16px;
+  height: 48px;
+  padding: 8px 48px;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -57,7 +59,52 @@ export default function Home() {
   return (
     <Container className={styles.container} data-tid="container">
       <ControlPanel>
+          {/* <Slider value={opacity} color="#0AF" settings={{
+              start: 50,
+              min: 10,
+              max: 100,
+              step: 1,
+              onChange: value => {
+                SetOpacity(value);
+                document.documentElement.style.setProperty('--overlay-opacity', `${value / 100}`);
+              }
+          }} /> */}
+          {/* <input
+            min={10}
+            max={100}
+            step={1}
+            type="range" 
+            value={opacity}
+            onChange={(e) => {
+              SetOpacity(e.target.value);
+              document.documentElement.style.setProperty('--overlay-opacity', `${e.target.value / 100}`);
+            }}
+          /> */}
           <Slider
+            defaultValue={50}
+            aria-labelledby="discrete-slider"
+            valueLabelDisplay="auto"
+            step={1}
+            min={10}
+            max={100}
+            onChange={(event: any, newValue: any) => {
+              SetOpacity(newValue);
+              document.documentElement.style.setProperty('--overlay-opacity', `${newValue / 100}`);
+            }}
+          />
+          <Input
+            size='small'
+            value={screenID}
+            onChange={handleStringChange((tagValue) => SetScreenID(tagValue))}
+            placeholder='Enter screenID...'
+          />
+          <Input
+            size='small'
+            value={token}
+            onChange={handleStringChange((tagValue) => SetToken(tagValue))}
+            placeholder='Enter token...'
+          />
+          {/* <Slider
             value={opacity}
             initialValue={opacity}
             max={100}
@@ -67,17 +114,7 @@ export default function Home() {
               SetOpacity(number);
               document.documentElement.style.setProperty('--overlay-opacity', `${number / 100}`);
             }}
-          />
-          <InputGroup
-            onChange={handleStringChange((tagValue) => SetScreenID(tagValue))}
-            placeholder="Enter screenID..."
-            value={screenID}
-          />
-          <InputGroup
-            onChange={handleStringChange((tagValue) => SetToken(tagValue))}
-            placeholder="Enter Token..."
-            value={token}
-          />
+          /> */}
       </ControlPanel>
     </Container>
   );

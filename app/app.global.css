@@ -9,7 +9,7 @@
 }
 body {
   position: relative;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.3) !important;
   height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, Helvetica Neue, serif;

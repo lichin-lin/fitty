@@ -276,7 +276,7 @@
     "@blueprintjs/docs-theme": "^3.4.0",
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@hot-loader/react-dom": "^16.12.0",
-    "@kiwicom/orbit-components": "^0.80.0",
+    "@material-ui/core": "^4.9.7",
     "@types/styled-components": "^5.0.1",
     "connected-react-router": "^6.6.1",
     "core-js": "^3.6.4",
@@ -291,11 +291,12 @@
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+    "react-semantic-ui-range": "^0.7.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.2",
     "source-map-support": "^0.5.16",
-    "styled-components": "^5.0.1",
-    "xel": "^0.0.219"
+    "styled-components": "^5.0.1"
   },
   "devEngines": {
     "node": ">=7.x",
