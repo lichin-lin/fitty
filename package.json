@@ -282,7 +282,7 @@
     "core-js": "^3.6.4",
     "devtron": "^1.4.0",
     "electron-debug": "^3.0.1",
-    "electron-log": "^4.0.6",
+    "electron-log": "^4.1.0",
     "electron-updater": "^4.2.0",
     "history": "^4.10.1",
     "react": "^16.13.1",
@@ -294,7 +294,8 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "source-map-support": "^0.5.16",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "xel": "^0.0.219"
   },
   "devEngines": {
     "node": ">=7.x",

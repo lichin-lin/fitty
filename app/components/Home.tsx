@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 import { Slider, InputGroup } from "@blueprintjs/core";
 import styles from './Home.css';
 import { handleStringChange } from "@blueprintjs/docs-theme";
-
 // import { Link } from 'react-router-dom';
 // import routes from '../constants/routes.json';
 
-const Container = Styled.div`
+const Container = styled.div`
   position: relative;
   width: 100%;
   height:100%;
@@ -20,7 +19,7 @@ const Container = Styled.div`
   }
 `;
 
-const ControlPanel = Styled.div`
+const ControlPanel = styled.div`
   bottom: 10px;
   position: absolute;
   width: 100%;

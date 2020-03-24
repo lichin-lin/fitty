@@ -17,6 +17,7 @@ import MenuBuilder from './menu';
 export default class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
+    log.transports.file.file = __dirname + 'log.log';
     autoUpdater.logger = log;
     autoUpdater.checkForUpdatesAndNotify();
   }
