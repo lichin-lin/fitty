@@ -1,9 +1,5 @@
 declare const styles: {
   readonly "Home__container__1sK25": string;
-  readonly "Counter__backButton__4lvfc": string;
-  readonly "Counter__counter__2BpKs": string;
-  readonly "Counter__btnGroup__1f4Se": string;
-  readonly "Counter__btn__2T2tb": string;
   readonly "fa": string;
   readonly "fab": string;
   readonly "fad": string;
