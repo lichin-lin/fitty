@@ -4,7 +4,6 @@ import { Input } from 'semantic-ui-react'
 import { Slider } from '@material-ui/core';
 import styles from './Home.css';
 import { handleStringChange } from "@blueprintjs/docs-theme";
-
 // import { Link } from 'react-router-dom';
 // import routes from '../constants/routes.json';
 
@@ -59,28 +58,7 @@ export default function Home() {
   return (
     <Container className={styles.container} data-tid="container">
       <ControlPanel>
-          {/* <Slider value={opacity} color="#0AF" settings={{
-              start: 50,
-              min: 10,
-              max: 100,
-              step: 1,
-              onChange: value => {
-                SetOpacity(value);
-                document.documentElement.style.setProperty('--overlay-opacity', `${value / 100}`);
-              }
-          }} /> */}
-          {/* <input
-            min={10}
-            max={100}
-            step={1}
-            type="range" 
-            value={opacity}
-            onChange={(e) => {
-              SetOpacity(e.target.value);
-              document.documentElement.style.setProperty('--overlay-opacity', `${e.target.value / 100}`);
-            }}
-          /> */}
-          <Slider
+          {/* <Slider
             defaultValue={50}
             aria-labelledby="discrete-slider"
             valueLabelDisplay="auto"
@@ -90,6 +68,18 @@ export default function Home() {
             onChange={(event: any, newValue: any) => {
               SetOpacity(newValue);
               document.documentElement.style.setProperty('--overlay-opacity', `${newValue / 100}`);
+            }}
+          /> */}
+          <input
+            type='range'
+            step={1}
+            min={10}
+            max={100}
+            value={opacity}
+            onChange={(event) => {
+              const newV = parseInt(event.target.value, 10)
+              SetOpacity(newV);
+              document.documentElement.style.setProperty('--overlay-opacity', `${newV / 100}`);
             }}
           />
           <Input
@@ -104,17 +94,6 @@ export default function Home() {
             onChange={handleStringChange((tagValue) => SetToken(tagValue))}
             placeholder='Enter token...'
           />
-          {/* <Slider
-            value={opacity}
-            initialValue={opacity}
-            max={100}
-            min={0}
-            labelStepSize={20}
-            onChange={(number) => {
-              SetOpacity(number);
-              document.documentElement.style.setProperty('--overlay-opacity', `${number / 100}`);
-            }}
-          /> */}
       </ControlPanel>
     </Container>
   );
