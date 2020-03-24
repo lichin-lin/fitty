@@ -1446,6 +1446,7 @@ declare const styles: {
   readonly "fa-zhihu": string;
   readonly "sr-only": string;
   readonly "sr-only-focusable": string;
+  readonly "root": string;
 };
 export = styles;
 

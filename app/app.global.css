@@ -3,9 +3,13 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 @import '~@fortawesome/fontawesome-free/css/all.css';
+:root {
+  --overlay-opacity: 0.5;
+  --overlay-image: url('./big3.png');
+}
 body {
   position: relative;
-  color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.3);
   height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
