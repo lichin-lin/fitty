@@ -19,7 +19,23 @@ const Container = styled.div`
     font-size: 1.4rem;
   }
 `;
+const Overlay = styled.div`
+  width: var(--overlay-width);
+  height: var(--overlay-height);
 
+  content: "";
+  background-image: var(--overlay-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: var(--overlay-opacity);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;  
+`;
 const ControlPanel = styled.div`
   bottom: 10px;
   position: absolute;
@@ -27,9 +43,12 @@ const ControlPanel = styled.div`
   height: 48px;
   padding: 8px 48px;
 
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 24px;
+  grid-gap: 24px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
 export default function Home() {
   // token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoicGVyc29uYWxfYWNjZXNzX3Rva2VuIiwiY2xpZW50X2lkIjoiNWU3YTAyYjA3NmNjMjA4YmU1NDljOWE1Iiwic2NvcGUiOiIiLCJpYXQiOjE1ODUwNTQzODQsImV4cCI6MTkwMDYyMzY0NCwiaXNzIjoiemVwbGluOmFwaS56ZXBsaW4uaW8iLCJzdWIiOiI1YzljMTg3NDE2ZDRlZDc3NmJiNTAzNTciLCJqdGkiOiJjZDQwZjFhNC05NzE0LTQzZTItYmNkMS02OTEzYTVjMTRjOWEifQ.3xLhOpEubiXO0GDM2Z6KJ2E9UxRpfjVlqa5Xerr9k5M
@@ -48,8 +67,11 @@ export default function Home() {
       return res.json()
     }).then((resJson) => {
       if(resJson.image && resJson.image.original_url) {
-        console.log('set to background!', resJson.image.original_url);
+        console.log('set to background!', resJson.image);
+        const h = 100 * resJson.image.height / resJson.image.width
         document.documentElement.style.setProperty('--overlay-image', `url('${resJson.image.original_url}')`);
+        document.documentElement.style.setProperty('--overlay-width', `100%`);
+        document.documentElement.style.setProperty('--overlay-height', `${h}vw`);
       }
     }).catch((error) => {
       console.error(error);
@@ -57,6 +79,9 @@ export default function Home() {
   }, [screenID])
   return (
     <Container className={styles.container} data-tid="container">
+      <Overlay>
+
+      </Overlay>
       <ControlPanel>
           {/* <Slider
             defaultValue={50}
