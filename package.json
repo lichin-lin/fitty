@@ -277,6 +277,8 @@
   "dependencies": {
     "@blueprintjs/core": "^3.24.0",
     "@blueprintjs/docs-theme": "^3.4.0",
+    "@elastic/datemath": "^5.0.2",
+    "@elastic/eui": "^21.1.0",
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@hot-loader/react-dom": "^16.12.0",
     "@material-ui/core": "^4.9.7",
@@ -288,6 +290,7 @@
     "electron-log": "^4.1.0",
     "electron-updater": "^4.2.0",
     "history": "^4.10.1",
+    "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.19",

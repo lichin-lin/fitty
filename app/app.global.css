@@ -3,11 +3,16 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 @import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~@elastic/eui/dist/eui_theme_light.css';
+
 :root {
   --overlay-opacity: 0.5;
   --overlay-image: url('./big3.png');
   --overlay-width: 100%;
   --overlay-height: 100%;
+}
+html {
+  background-color: transparent !important;
 }
 body {
   position: relative;
