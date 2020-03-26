@@ -9,9 +9,10 @@ import {
   EuiFlexItem,
   EuiFormRow,
   EuiFieldText,
+  EuiTabbedContent,
 } from '@elastic/eui';
 import styles from './Home.css';
-
+const _w = 480;
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -48,10 +49,10 @@ const ControlPanel = styled.div`
 `;
 
 const StyledEuiPopover = styled(EuiPopover)`
-  bottom: 10px;
-  left: 10px;
+  bottom: 16px;
+  left: 16px;
   position: absolute;
-  width: 360px;
+  width: 480px;
   height: auto;
 `;
 
@@ -92,6 +93,57 @@ export default function Home() {
       Toggle ControlPanel
     </EuiButton>
   );
+  const tabsContent = [
+    {
+      id: 'zeplin--id',
+      name: 'Zeplin',
+      content: (
+        <EuiFlexGroup style={{ maxWidth: 600, marginTop: 8 }}>
+          <EuiFlexItem>
+            <EuiFormRow id="section-zeplin-projectID">
+              <EuiFieldText
+                compressed
+                placeholder="get it from the web"
+                value={projectId}
+                prepend="Project ID"
+                readOnly
+              />
+            </EuiFormRow>
+
+            <EuiFormRow id="section-zeplin-screenID">
+              <EuiFieldText
+                compressed
+                placeholder="get it from the web"
+                value={screenID}
+                prepend="Screen ID"
+                onChange={(e) => SetScreenID(e.target.value)}
+              />
+            </EuiFormRow>
+
+            <EuiFormRow id="section-zeplin-token">
+              <EuiFieldText
+                compressed
+                placeholder="get it from the develop panel on zeplin"
+                value={token}
+                prepend="Token"
+                onChange={(e) => SetToken(e.target.value)}
+              />
+            </EuiFormRow>
+          </EuiFlexItem>
+        </EuiFlexGroup>
+      ),
+    },
+    {
+      id: 'figma--id',
+      name: 'Figma',
+      disabled: true,
+      content: (
+        <React.Fragment>
+         TBD
+        </React.Fragment>
+      ),
+    },  
+  ]
   return (
     <Container className={styles.container} data-tid="container">
       <Overlay />
@@ -105,7 +157,7 @@ export default function Home() {
         <ControlPanel>
           <EuiForm component="form">
             <EuiFlexGroup style={{ maxWidth: 600 }}>
-              <EuiFlexItem id="overlay-opacity-control">
+              <EuiFlexItem>
                 {/* <EuiFormRow label="Scale" helpText="">
                     <EuiRange
                       id={'123'}
@@ -127,7 +179,6 @@ export default function Home() {
                     min={0}
                     max={100}
                     step={1}
-                    showInput
                     value={opacity}
                     onChange={e => {
                       const newV = parseInt(e.target.value, 10)
@@ -139,36 +190,26 @@ export default function Home() {
                   </EuiFormRow>
               </EuiFlexItem>
             </EuiFlexGroup>
+            {/* Tabs: Support: Zeplin, Figma */}
             <EuiFlexGroup style={{ maxWidth: 600 }}>
               <EuiFlexItem>
-                <EuiFormRow id="section-zeplin-projectID" label="Project ID" helpText="">
-                  <EuiFieldText
-                    compressed
-                    placeholder="get it from the web"
-                    value={projectId}
-                    readOnly
-                  />
-                </EuiFormRow>
-
-                <EuiFormRow id="section-zeplin-screenID" label="Screen ID">
-                  <EuiFieldText
-                    compressed
-                    placeholder="get it from the web"
-                    value={screenID}
-                    onChange={(e) => SetScreenID(e.target.value)}
-                  />
-                </EuiFormRow>
-
-                <EuiFormRow id="section-zeplin-token" label="Token" helpText="">
-                  <EuiFieldText
-                    compressed
-                    placeholder="get it from the develop panel on zeplin"
-                    value={token}
-                    onChange={(e) => SetToken(e.target.value)}
+                <EuiFormRow id="data-control" label="Source" helpText="">
+                  <EuiTabbedContent
+                    size='s'
+                    tabs={tabsContent}
+                    initialSelectedTab={tabsContent[0]}
+                    autoFocus="selected"
+                    onTabClick={tab => {
+                      console.log('clicked tab', tab);
+                    }}
+                    style={{
+                      maxWidth: _w,
+                    }}
                   />
                 </EuiFormRow>
               </EuiFlexItem>
             </EuiFlexGroup>
+            {/* Tabs End */}
           </EuiForm>
         </ControlPanel>  
       </StyledEuiPopover>
