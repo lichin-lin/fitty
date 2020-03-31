@@ -3,17 +3,3 @@
   height: 100%;
   overflow: scroll;
 }
-/* .container::after {
-  content: "";
-  background-image: var(--overlay-image);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: var(--overlay-opacity);
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-} */
